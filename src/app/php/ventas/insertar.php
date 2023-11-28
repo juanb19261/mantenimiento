@@ -8,8 +8,8 @@ $params = json_decode($json);
 
 require ("../conexion.php");
 
-//$ins = "INSERT INTO usuarios (Nombre_apellidos, Cedula, Celular, clave) VALUES ('juan', 234334, 12345677, SHA1('12345'))"
-$ins = "INSERT INTO  usuarios (Nombre_apellido,  Cedula, Celular, clave) VALUES ('$params->Nombre_apellidos', '$params->Cedula', '$params->Celular',' $params->clave' SHA1('$params->clave')";
+//$ins = "INSERT INTO ventas (Cantidad, subtotal, Total, id_cliente) VALUES ('2, 3, 5, 1')"
+$ins = "INSERT INTO  ventas (Cantidad, subtotal, Total, id_cliente) VALUES ('$params->Cantidad', '$params->subtotal', '$params->Total', '$params->id_cliente')";
 
 
 
