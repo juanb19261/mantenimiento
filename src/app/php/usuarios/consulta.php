@@ -4,7 +4,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 require("../conexion.php");
 
-$con = "SELECT * from usuarios ORDER BY Nombre_apellidos";
+$con = "SELECT * from usuarios ORDER BY Nombre";
 $res= mysqli_query($conexion,$con) or die("no_consulto_usuario");
 
 
