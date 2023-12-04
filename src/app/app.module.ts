@@ -11,7 +11,7 @@ import { PrincipalComponent } from './modulos/principal.component';
 import { DashboardComponent } from './modulos/dashboard/dashboard.component';
 import { LoginComponent } from './modulos/login/login.component';
 import { CommonModule } from '@angular/common';
-
+import { Usuarioscomponent } from './modulos/usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +21,16 @@ import { CommonModule } from '@angular/common';
     FooterComponent,
     PrincipalComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    Usuarioscomponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    
   ],
   
   providers: [],
