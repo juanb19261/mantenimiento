@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
@@ -10,11 +11,13 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
 export class Usuarioscomponent implements OnInit {
   //variables globales
 
-  verf= false;
+  verf = false;
+  usuarios :any;
 
   constructor(private suser: UsuariosService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
+    this.consulta();
 
   }
   //mostrar formulario
@@ -29,7 +32,11 @@ export class Usuarioscomponent implements OnInit {
     }
   }
 
+  consulta() {
+    this.suser.consultar().subscribe((result:any) => {
+      this.usuarios = result;
+     //console.log(this.usuarios);
+    })
+
+  }
 }
-
-
-

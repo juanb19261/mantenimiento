@@ -50,14 +50,16 @@
             <th>Acciones</th>
         </tr>
 
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+
+        <tr *ngFor="let item of usuarios">
+            <td>{{item.Nombre}}</td>
+            <td>{{item.Cedula}}</td>
+            <td>{{item.Celular}}</td>
             <td>
                 Editar
                 -
                 Eliminar
+
             </td>
         </tr>
     </table>
