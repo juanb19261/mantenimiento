@@ -32,10 +32,10 @@ export class Usuarioscomponent implements OnInit {
     }
   }
 
-  consulta() {
-    this.suser.consultar().subscribe((result:any) => {
+  consulta () {
+  this.suser.consultar().subscribe((result:any) => {
       this.usuarios = result;
-     //console.log(this.usuarios);
+     console.log(this.usuarios);
     })
 
   }
