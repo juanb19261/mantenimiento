@@ -11,11 +11,12 @@ export class Usuarioscomponent implements OnInit {
   //variables globales
 
   verf= false;
+  usuario : any;
 
   constructor(private suser: UsuariosService) { }
 
   ngOnInit(): void {
-
+    this.consulta();
   }
   //mostrar formulario
   mostrar(dato: any) {
@@ -27,6 +28,13 @@ export class Usuarioscomponent implements OnInit {
         this.verf = true;
         break;
     }
+  }
+
+  consulta(){
+    this.suser.consultar().subscribe((result:any)=> {
+      this.usuario = result;
+      console.log(this.usuario);
+    })
   }
 
 }
