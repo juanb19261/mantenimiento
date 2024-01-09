@@ -1,5 +1,5 @@
 <?php 
-header(`Access-Control-Allow-origin: *`);
+header("Access-Control-Allow-origin: *");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 
 
