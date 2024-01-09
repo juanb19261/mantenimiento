@@ -11,12 +11,19 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
 export class Usuarioscomponent implements OnInit {
   //variables globales
 
+
   verf = false;
-  usuarios :any;
+  usuario: any;
+  user = {
+    Nombre: "",
+    usuario: "",
+    clave: "",
+    tipo: ""
+  } ;
 
   constructor(private suser: UsuariosService) { }
 
-  ngOnInit(): void {  
+  ngOnInit(): void {
     this.consulta();
 
   }
@@ -32,11 +39,21 @@ export class Usuarioscomponent implements OnInit {
     }
   }
 
-  consulta () {
-  this.suser.consultar().subscribe((result:any) => {
-      this.usuarios = result;
-     console.log(this.usuarios);
+  consulta() {
+    this.suser.consultar().subscribe((result: any) => {
+      this.usuario = result;
+      //console.log(this.usuario);
     })
-
   }
+
+  ingresar() {
+    this.suser.insertar(this.user).subscribe((datos: any) => { 
+      if (datos['resultado']=='ok') {
+        this.consulta();
+      }
+    
+    })
+    this.mostrar(0);
+  }
+
 }

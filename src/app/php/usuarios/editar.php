@@ -8,7 +8,7 @@ $params = json_decode($json);
 
 require ("../conexion.php");
 
-$editar = " UPDATE  usuarios SET Nombre='$params->Nombre', Cedula='$params->Cedula', Celular='$params->Celular', clave='$params->clave' SHA1('$params->clave' WHERE id_usuario='$params->id_usuario";
+$editar = " UPDATE  usuarios SET Nombre='$params->Nombre', usuario='$params->usuario', clave='$params->clave', SHA1('$params->clave', tipo='$params->tipo' WHERE id_usuario='$params->id_usuario";
 mysqli_query($conexion,$ins) or die ("no inserto");
 
 Class Result{}

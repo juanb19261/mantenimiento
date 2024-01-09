@@ -8,12 +8,11 @@ $params = json_decode($json);
 
 require ("../conexion.php");
 
-//$ins = "INSERT INTO usuarios (Nombre, Cedula, Celular, clave) VALUES ('juan', 234334, 12345677, SHA1('12345'))"
-$ins = "INSERT INTO  usuarios (Nombre,  Cedula, Celular, clave) VALUES ('$params->Nombre', '$params->Cedula', '$params->Celular',' $params->clave' SHA1('$params->clave')";
+$ins = "INSERT INTO usuarios (Nombre, usuario, clave, tipo) VALUES ('juan', juan2, 12345677, SHA1('12345'), invitado)";
+// $ins = "INSERT INTO  usuarios(Nombre, usuario, clave, tipo) VALUES ('$params->Nombre', '$params->usuario', '$params->clave', SHA1('$params->clave'),'$params->tipo')";
 
 
-
-mysqli_query($conexion,$ins) or die ("no inserto");
+mysqli_query ($conexion,$ins) or die ("no inserto");
 
 Class Result{}
 

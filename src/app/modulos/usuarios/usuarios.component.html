@@ -1,66 +1,61 @@
+<hr>
 <h1 class="text-left">USUARIOS</h1>
 
 <button class=" btn btn-primary" (click)="mostrar(1)">insertar usuarios</button><br><br>
 
-<div id="formulario" *ngIf="verf==true"> 
+<div id="formulario" *ngIf="verf==true">
     <div class="row">
-        
         <div class="col-lg-6">
-            <input type="text" id="Nombre" class="form-control">
+            <input type="text" id="Nombre" class="form-control" [(ngModel)]="user.Nombre">
         </div>
-
         <div class="col-lg-6">
-            <input type="email" id="usuario" class="form-control">
+            <input type="email" id="usuario" class="form-control" [(ngModel)]="user.usuario">
         </div>
     </div>
-
     <div class="row">
         <div class="col-lg-6">
-            <input type="password" id="clave" class="form-control">
+            <input type="password" id="clave" class="form-control" [(ngModel)]="user.clave">
         </div>
-
         <div class="col-lg-6">
-            <select id="tipo" class="form-control form-select">
+            <select id="tipo" class="form-control form-select"[(ngModel)]="user.tipo">
                 <option value="Administrador" label="Administrador" Administrador></option>
                 <option value="General" label="General" General></option>
             </select>
         </div>
     </div>
-
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-3">
-            <button class="btn btn-primary">Guardar</button>
+            <button class="btn btn-primary" (click)="ingresar()">Guardar</button>
         </div>
         <div class="col-lg-3">
             <button class="btn btn-secondary" (click)="mostrar(0)">Cancelar</button>
         </div>
         <div class="col-lg-3"></div>
-
     </div>
 </div><br>
-
-
+<hr>
 <div class="table-responsive">
-    <table class="table table-success table-striped" border="1">
-        <tr>
-            <th>Nombre</th>
-            <th>Cedula</th>
-            <th>Celular</th>
-            <th>Acciones</th>
-        </tr>
 
 
-        <tr *ngFor="let item of usuarios">
-            <td>{{item.Nombre}}</td>
-            <td>{{item.Cedula}}</td>
-            <td>{{item.Celular}}</td>
-            <td>
-                Editar
-                -
-                Eliminar
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Usuario</th>
+                <th>Tipo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- mostras usuarios -->
+            <tr *ngFor="let item of usuario">
+                <td>{{item.Nombre}}</td>
+                <td>{{item.usuario}}</td>
+                <td>{{item.tipo}}</td>
+                <td>Editar-Eliminar</td>
+            </tr>
+        </tbody>
 
-            </td>
-        </tr>
     </table>
 </div>
