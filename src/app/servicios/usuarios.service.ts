@@ -15,7 +15,7 @@ export class UsuariosService {
   }
 
   insertar(articulo: any) {
-    return this.http.post(`${this.url}insert.php`, JSON.stringify(articulo));
+    return this.http.post(`${this.url}insertar.php`, JSON.stringify(articulo));
   }
 
   eliminar(id: number) {
