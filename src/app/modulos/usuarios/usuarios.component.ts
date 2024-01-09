@@ -9,9 +9,7 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
   styleUrls: ['./usuarios.component.scss']
 })
 export class Usuarioscomponent implements OnInit {
-  //variables globales
-
-<<<<<<< HEAD
+  //variables globa HEAD
 
   verf = false;
   usuario: any;
@@ -21,20 +19,14 @@ export class Usuarioscomponent implements OnInit {
     clave: "",
     tipo: ""
   } ;
-=======
-  verf= false;
-  usuario : any;
->>>>>>> 9789361de464862b78c43a6ff1a408f4bd33c872
+
 
   constructor(private suser: UsuariosService) { }
 
   ngOnInit(): void {
-    this.consulta();
-<<<<<<< HEAD
+    this.consulta(); } 
 
-=======
->>>>>>> 9789361de464862b78c43a6ff1a408f4bd33c872
-  }
+
   //mostrar formulario
   mostrar(dato: any) {
     switch (dato) {
@@ -47,7 +39,7 @@ export class Usuarioscomponent implements OnInit {
     }
   }
 
-<<<<<<< HEAD
+
   consulta() {
     this.suser.consultar().subscribe((result: any) => {
       this.usuario = result;
@@ -65,13 +57,5 @@ export class Usuarioscomponent implements OnInit {
     this.mostrar(0);
   }
 
-=======
-  consulta(){
-    this.suser.consultar().subscribe((result:any)=> {
-      this.usuario = result;
-      console.log(this.usuario);
-    })
-  }
-
->>>>>>> 9789361de464862b78c43a6ff1a408f4bd33c872
+  
 }

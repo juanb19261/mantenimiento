@@ -17,7 +17,7 @@
             <input type="password" id="clave" class="form-control" [(ngModel)]="user.clave">
         </div>
         <div class="col-lg-6">
-            <select id="tipo" class="form-control form-select"[(ngModel)]="user.tipo">
+            <select id="tipo" class="form-control form-select" [(ngModel)]="user.tipo">
                 <option value="Administrador" label="Administrador" Administrador></option>
                 <option value="General" label="General" General></option>
             </select>
@@ -36,42 +36,30 @@
 </div><br>
 <hr>
 <div class="table-responsive">
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 9789361de464862b78c43a6ff1a408f4bd33c872
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>Nombre</th>
-<<<<<<< HEAD
                 <th>Usuario</th>
-                <th>Tipo</th>
-=======
-                <th>Cedula</th>
-                <th>Celular</th>
->>>>>>> 9789361de464862b78c43a6ff1a408f4bd33c872
+                <th>clave</th>
+                <th>tipo</th>
                 <th>Acciones</th>
+
             </tr>
         </thead>
         <tbody>
+
             <!-- mostras usuarios -->
             <tr *ngFor="let item of usuario">
+
                 <td>{{item.Nombre}}</td>
-<<<<<<< HEAD
                 <td>{{item.usuario}}</td>
+                <td>{{item.clave}}</td>
                 <td>{{item.tipo}}</td>
                 <td>Editar-Eliminar</td>
+                
             </tr>
         </tbody>
-
-=======
-                <td>{{item.Cedula}}</td>
-                <td>{{item.Celular}}</td>
-                <td>Editar-Eliminar</td>
-            </tr>
-        </tbody>
->>>>>>> 9789361de464862b78c43a6ff1a408f4bd33c872
     </table>
 </div>
