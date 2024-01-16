@@ -1,7 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuarios',
@@ -93,7 +93,7 @@ export class Usuarioscomponent implements OnInit {
   ingresar() {
     this.validar();
     if (this.validNombre == true && this.validusuario == true && this.validclave == true && this.validtipo == true) {
-      
+
       this.suser.insertar(this.user).subscribe((datos: any) => {
         if (datos['resultado'] == 'ok') {
           // alerta datos
@@ -105,6 +105,34 @@ export class Usuarioscomponent implements OnInit {
     }
 
   }
+  pregunta(id: any, Nombre: any) {
 
+    Swal.fire({
+      title: 'Esta seguro eliminar usuario ' + Nombre + '?',
+      text: "El proceso no podra ser revertido!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "si, eliminar!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.borrarusuario(id);
+        Swal.fire({
+          title: "Eliminado!",
+          text: "El usuario ha sido eliminado.",
+          icon: "success"
+        });
+      }
+    });
+  }
 
+  borrarusuario(id: any) {
+    this.suser.eliminar(id).subscribe((datos: any) => {
+      if (datos['resultado'] == 'ok'){
+        this.consulta();
+      }
+    });
+
+  }
 }

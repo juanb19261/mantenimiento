@@ -61,8 +61,21 @@
                 <td>{{item.usuario}}</td>
                 <!-- <td>{{item.clave}}</td> -->
                 <td>{{item.tipo}}</td>
-                <td>Editar-Eliminar</td>
-                
+                <td>
+                    <a>
+                        <span class=" fas fa-edit editar " title="Editar"></span>
+
+                    </a>
+
+                    -
+
+                    <a (click)="pregunta(item.id_usuario, item.Nombre)">
+
+                        <span class=" fas fa-trash-alt eliminar" title="Eliminar"></span>
+                    </a>
+
+                </td>
+
             </tr>
         </tbody>
     </table>
