@@ -13,6 +13,7 @@ export class Usuarioscomponent implements OnInit {
 
   verf = false;
   usuario: any;
+  iduser: any;
   user = {
     Nombre: "",
     usuario: "",
@@ -24,6 +25,7 @@ export class Usuarioscomponent implements OnInit {
   validusuario = true
   validclave = true
   validtipo = true
+  beditar=false;
 
   constructor(private suser: UsuariosService) { }
 
@@ -38,6 +40,9 @@ export class Usuarioscomponent implements OnInit {
     switch (dato) {
       case 0:
         this.verf = false;
+        this.beditar = false;
+        this.iduser = "";
+        this.limpiar();
         break;
       case 1:
         this.verf = true;
@@ -135,4 +140,31 @@ export class Usuarioscomponent implements OnInit {
     });
 
   }
+
+  cargardatos(datos:any, id:number){
+    this.user.Nombre = datos.Nombre;
+    this.user.usuario = datos.usuario;
+    this.user.clave = datos.clave;
+    this.user.tipo = datos.tipo;
+    this.iduser = id;
+    this.mostrar(1);
+    this.beditar = true;
+  }
+
+  editar(){
+
+    this.validar();
+    
+    if (this.validNombre == true && this.validusuario == true && this.validclave == true && this.validtipo == true) {
+
+      this.suser.editar(this.user, this.iduser).subscribe((datos: any) => {
+        if (datos['resultado'] == 'ok') {
+          // alerta datos
+          this.consulta();
+        }
+      })
+      this.mostrar(0);  
+    }
+  }
+
 }
