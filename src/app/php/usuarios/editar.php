@@ -10,8 +10,8 @@ $id= $_GET['id'];
 
 require ("../conexion.php");
 
-$editar = " UPDATE  usuarios SET Nombre='$params->Nombre', usuario='$params->usuario', clave='$params->clave', SHA1('$params->clave', tipo='$params->tipo' WHERE id_usuario=$id";
-mysqli_query($conexion,$ins) or die ('no edito');
+$editar = "UPDATE usuarios SET Nombre='$params->Nombre', usuario='$params->usuario', clave=SHA1('$params->clave'), tipo='$params->tipo' WHERE id_usuario='$id'";
+mysqli_query($conexion, $editar) or die('no edito');
 
 Class Result{}
 
