@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-01-2024 a las 17:26:12
+-- Tiempo de generación: 01-02-2024 a las 21:50:24
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -197,10 +197,10 @@ INSERT INTO `proveedor` (`id_proveedor`, `Nit`, `razon_social`, `celular`) VALUE
 
 CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
-  `Nombre` varchar(11) NOT NULL,
-  `usuario` varchar(11) NOT NULL,
-  `clave` varchar(11) NOT NULL,
-  `tipo` varchar(11) NOT NULL
+  `Nombre` varchar(150) NOT NULL,
+  `usuario` varchar(150) NOT NULL,
+  `clave` varchar(150) NOT NULL,
+  `tipo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -208,9 +208,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `Nombre`, `usuario`, `clave`, `tipo`) VALUES
-(1, 'juan', 'juan123@gma', '40bd0015630', 'Administrad'),
-(2, 'luciana rod', 'lucy123@gma', 'f37be93b674', 'General'),
-(3, 'carlos sant', 'cars89@gmai', 'ae7e341f578', 'General');
+(1, 'juan bejarano', 'juan123@gmail.com', '209d5fae8b2ba427d30650dd0250942af944a0c9', 'Administrador'),
+(2, 'luciana rodriguez', 'lucy123@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'General'),
+(3, 'carlos santiago', 'cars89@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'General');
 
 -- --------------------------------------------------------
 
