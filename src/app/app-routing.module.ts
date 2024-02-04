@@ -5,18 +5,17 @@ import { DashboardComponent } from './modulos/dashboard/dashboard.component';
 import { LoginComponent } from './modulos/login/login.component';
 import { FooterComponent } from "src/app/estructura/footer/footer.component"
 import { Usuarioscomponent } from './modulos/usuarios/usuarios.component';
+import { validaruserGuard } from './guards/validaruser.guard';
 
 const routes: Routes = [
   {
     path: "", component: PrincipalComponent,
+    canActivate: [validaruserGuard],
     children: [
       { path: "dashboard", component: DashboardComponent },
       { path: "usuarios", component: Usuarioscomponent},
       { path: "", redirectTo: "/dashboard", pathMatch: "full" },
-     
-      
-    ]
-
+    ],
   },
   { path: "login", component: LoginComponent },
   { path: "footer", component: FooterComponent },
