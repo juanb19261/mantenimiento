@@ -8,19 +8,19 @@
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a  [routerLink]="['/dashboard']" class="nav-link active" aria-current="page">
+      <a [routerLink]="['/dashboard']" class="nav-link active" aria-current="page">
         DASHBOARD
       </a>
     </li>
-    
+
     <li>
-      <a  [routerLink]="['/compras']" class="nav-link text-white">
+      <a [routerLink]="['/compras']" class="nav-link text-white">
         COMPRAS
       </a>
     </li>
 
-     <li>
-      <a  [routerLink]="['/clientes']" class="nav-link text-white">
+    <li>
+      <a [routerLink]="['/clientes']" class="nav-link text-white">
         CLIENTES
       </a>
     </li>
@@ -32,13 +32,13 @@
     </li>
 
     <li>
-      <a  [routerLink]="['/productos']" class="nav-link text-white">
+      <a [routerLink]="['/productos']" class="nav-link text-white">
         PRODUCTOS
       </a>
     </li>
 
     <li>
-      <a  [routerLink]="['/usuarios']" class="nav-link text-white">
+      <a [routerLink]="['/usuarios']" class="nav-link text-white">
         USUARIOS
       </a>
     </li>
@@ -51,15 +51,13 @@
       <img src="" class="rounded-circle me-2">
       <strong></strong>
     </a>
-    
+
     <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
       <li><a class="dropdown-item" href="#">Configuracion</a></li>
       <li><a class="dropdown-item" href="#">Perfil</a></li>
-      <li>
-        <hr class="dropdown-divider">
-      </li>
-
-      <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
+      <hr class="dropdown-divider">
+      <li><a class="nav link px-3" (click)="cerrar()" style="cursor: pointer;">cerrar sesion</a>
+    </li>
     </ul>
   </div>
 </div>
