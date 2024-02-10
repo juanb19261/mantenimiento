@@ -1,0 +1,81 @@
+<hr>
+<h1 class="text-left">PRODUCTOS</h1>
+
+<button class=" btn btn-primary" (click)="mostrar(1)">insertar productos</button><br><br>
+
+<div id="formulario">
+    <!-- <div class="row">
+        <div class="col-lg-6">
+            <input type="text" id="Nombre" class="form-control" [(ngModel)]="user.Nombre"><br>
+            <span style="color: red;" *ngIf="validNombre==false">Insertar Nombre</span>
+        </div>
+        <div class="col-lg-6">
+            <input type="email" id="usuario" class="form-control" [(ngModel)]="user.usuario"><br>
+            <span style="color: red;" *ngIf="validusuario==false"> Insertar usuario</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <input type="password" id="clave" class="form-control" [(ngModel)]="user.clave"><br>
+            <span style="color: red;" *ngIf="validclave==false">Insertar Contraseña</span>
+        </div>
+        <div class="col-lg-6">
+            <select id="tipo" class="form-control form-select" [(ngModel)]="user.tipo">
+                <option value="Administrador" label="Administrador" Administrador></option>
+                <option value="General" label="General" General></option>
+            </select><br>
+            <span style="color: red;" *ngIf="validtipo==false">Elegir tipo de usuario</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3">
+            <button  *ngIf="beditar==false" class="btn btn-primary" (click)="ingresar()">Guardar</button>
+            <button *ngIf="beditar==true" class="btn btn-primary" (click)="editar()">Editar</button>
+        </div>
+        <div class="col-lg-3">
+            <button  class="btn btn-secondary" (click)="mostrar(0)">Cancelar</button>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div><br> -->
+<hr>
+<div class="table-responsive">
+
+    <table class="table table-striped"> 
+        <thead>
+            <tr>
+                <th>codigo</th>
+                <th>nombre</th>
+                <th>categoria</th>
+                <th>v_compra</th>
+                <th>v_venta</th>
+                <th>stock</th>
+                <!-- <th>acciones</th> -->
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <!-- mostrar producto -->
+            <tr *ngFor="let item of productos">
+
+                <td>{{item.codigo}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.ncategoria}}</td>
+                <td>{{item.v_compra}}</td>
+                <td>{{item.v_venta}}</td>
+                <td>{{item.stock}}</td>
+                <!-- <td>{{item.acciones}}</td> -->
+                
+                <td>
+                    <a ></a>
+                 
+
+                    <a></a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
