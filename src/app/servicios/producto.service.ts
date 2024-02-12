@@ -6,12 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class ProductoService {
 
-  url = 'http:/localhost/mantenimiento/src/app/php/producto/';
+  url = 'http://localhost/mantenimiento/src/app/php/producto/';
 
   constructor(private http: HttpClient) { }
 
   consultar() {
-    return this.http.get('${this.url}consulta.php');
+    return this.http.get(`${this.url}consulta.php`);
   }
 
   // insertar(articulo: any) {
