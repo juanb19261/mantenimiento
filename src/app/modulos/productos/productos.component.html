@@ -1,81 +1,97 @@
 <hr>
 <h1 class="text-left">PRODUCTOS</h1>
 
-<button class=" btn btn-primary" (click)="mostrar(1)">insertar productos</button><br><br>
+<button class=" btn btn-primary" (click)="mostrar(1)">insertar productos</button>
 
-<div id="formulario">
-    <!-- <div class="row">
-        <div class="col-lg-6">
-            <input type="text" id="Nombre" class="form-control" [(ngModel)]="user.Nombre"><br>
-            <span style="color: red;" *ngIf="validNombre==false">Insertar Nombre</span>
-        </div>
-        <div class="col-lg-6">
-            <input type="email" id="usuario" class="form-control" [(ngModel)]="user.usuario"><br>
-            <span style="color: red;" *ngIf="validusuario==false"> Insertar usuario</span>
-        </div>
-    </div>
+<div id="formulario" *ngIf="verf==true">
     <div class="row">
-        <div class="col-lg-6">
-            <input type="password" id="clave" class="form-control" [(ngModel)]="user.clave"><br>
-            <span style="color: red;" *ngIf="validclave==false">Insertar Contraseña</span>
+        <div class="col-lg-4">
+            <input type="text" id="codigo" class="form-control" [(ngModel)]="product.codigo" placeholder="codigo">
+            <span style="color: red;" *ngIf="validcodigo==false">Insertar codigo</span>
         </div>
-        <div class="col-lg-6">
-            <select id="tipo" class="form-control form-select" [(ngModel)]="user.tipo">
-                <option value="Administrador" label="Administrador" Administrador></option>
-                <option value="General" label="General" General></option>
+        <div class="col-lg-4">
+            <input type="email" id="nombre" class="form-control" [(ngModel)]="product.nombre"
+                placeholder="Nombre del producto">
+            <span style="color: red;" *ngIf="validnombre==false"> Insertar nombre</span>
+        </div>
+
+        <div class="col-lg-3">
+            <input type="number" id="v_compra" class="form-control" [(ngModel)]="product.v_compra"
+                placeholder="valor de la compra">
+            <span style="color: red;" *ngIf="validcompra==false"> Insertarvalor de la compra</span>
+        </div>
+        <div class="col-lg-4">
+            <input type="number" id="v_venta" class="form-control" [(ngModel)]="product.v_venta"><br>
+            <span style="color: red;" *ngIf="validventa==false"> Insertar valor de la venta</span>
+        </div>
+        <div class="col-lg-4">
+            <input type="number" id="stock" class="form-control" [(ngModel)]="product.stock">
+            <span style="color: red;" *ngIf="validstock==false"> Insertar nombre</span>
+        </div>
+        <div class="col-lg-3">
+            <select id="fo_cate" class="form-control form-select" [(ngModel)]="product.fo_cate">
+                <option value="0" label="seleccionar categoria">seleccionar categoria</option>
+                <option *ngFor="let itemc of categoria" value="{{itemc.categoria}}" label="{{itemc.nombre}}"></option>
             </select><br>
-            <span style="color: red;" *ngIf="validtipo==false">Elegir tipo de usuario</span>
+            <span style="color: red;" *ngIf="validfo_cate==false"> seleccionar categoria</span>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-3">
-            <button  *ngIf="beditar==false" class="btn btn-primary" (click)="ingresar()">Guardar</button>
-            <button *ngIf="beditar==true" class="btn btn-primary" (click)="editar()">Editar</button>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-3">
+                <button *ngIf="beditar==false" class="btn btn-primary" (click)="insertar()">Guardar</button>
+                <button *ngIf="beditar==true" class="btn btn-primary">Editar</button>
+            </div>
+            <div class="col-lg-3">
+                <button class="btn btn-secondary" (click)="mostrar(0)">Cancelar</button>
+            </div>
+            <div class="col-lg-3"></div>
         </div>
-        <div class="col-lg-3">
-            <button  class="btn btn-secondary" (click)="mostrar(0)">Cancelar</button>
-        </div>
-        <div class="col-lg-3"></div>
-    </div>
-</div><br> -->
-<hr>
-<div class="table-responsive">
-
-    <table class="table table-striped"> 
-        <thead>
-            <tr>
-                <th>codigo</th>
-                <th>nombre</th>
-                <th>categoria</th>
-                <th>v_compra</th>
-                <th>v_venta</th>
-                <th>stock</th>
-                <!-- <th>acciones</th> -->
-
-            </tr>
-        </thead>
-        <tbody>
-
-            <!-- mostrar producto -->
-            <tr *ngFor="let item of productos">
-
-                <td>{{item.codigo}}</td>
-                <td>{{item.nombre}}</td>
-                <td>{{item.ncategoria}}</td>
-                <td>{{item.v_compra}}</td>
-                <td>{{item.v_venta}}</td>
-                <td>{{item.stock}}</td>
-                <!-- <td>{{item.acciones}}</td> -->
-                
-                <td>
-                    <a ></a>
-                 
-
-                    <a></a>
-                </td>
-
-            </tr>
-        </tbody>
-    </table>
+    </div><br>
+    <hr>
 </div>
+
+
+    <div class="table-responsive"><br>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>codigo</th>
+                    <th>nombre</th>
+                    <th>categoria</th>
+                    <th>v_compra</th>
+                    <th>v_venta</th>
+                    <th>stock</th>
+                    <th>acciones</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <!-- mostrar producto -->
+                <tr *ngFor="let item of productos">
+
+                    <td>{{item.codigo}}</td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.ncategoria}}</td>
+                    <td>$ {{item.v_compra}}.00</td>
+                    <td>$ {{item.v_venta}}.00</td>
+                    <td>{{item.stock}}</td>
+                    <td>{{item.acciones}}</td>
+
+                    <td>
+                        <a>
+                            <span class=" fas fa-edit editar " title="Editar"></span>
+                        </a>
+
+                        -
+
+                        <a>
+                            <span class=" fas fa-trash-alt eliminar" title="Eliminar"></span>
+                        </a>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>

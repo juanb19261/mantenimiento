@@ -8,12 +8,11 @@ $params = json_decode($json);
 
 require ("../conexion.php");
 
-//$ins = "INSERT INTO producto (Nombre, valor_compra, valor_venta, fo_inventario, fo_proveedor, fo_marca) VALUES ('juan', 234334, 12345677, SHA1('12345'))"
-$ins = "INSERT INTO  producto (Nombre, valor_compra, valor_venta, fo_inventario, fo_proveedor, fo_marca) VALUES ('$params->Nombre', '$params->valor_compra', '$params->valor_venta',' $params->fo_inventario','$params->fo_proveedor', '$params->fo_marca')";
+// $ins = "INSERT INTO usuarios (Nombre, usuario, clave, tipo) VALUES ('juan', 'juan2', SHA1('12345'), 'invitado')";
+$ins = "INSERT INTO  producto(codigo,nombre, v_compra, v_venta, stock, fo_cate) VALUES ('$params->codigo', '$params->nombre', $params->v_compra, $params->stock, $params->cate)";
 
 
-
-mysqli_query($conexion,$ins) or die ("no inserto");
+mysqli_query ($conexion,$ins) or die ("no inserto");
 
 Class Result{}
 
@@ -24,4 +23,4 @@ $response -> mensaje = "datos_grabados";
 
 header("content-type: application/json");
 echo json_encode($response);
-?>
+?>  
