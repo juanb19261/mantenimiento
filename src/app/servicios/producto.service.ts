@@ -18,7 +18,7 @@ export class ProductoService {
     return this.http.post(`${this.url}insert.php`, JSON.stringify(articulo));
    }
    consultar_categoria() {
-    return this.http.get(`${this.url}consultar_categoria.php`);
+    return this.http.get(`${this.url}consulta_categoria.php`);
   }
   // eliminar(id: number) {
   //   return this.http.get('${this.url}eliminar.php?id=${id}');
