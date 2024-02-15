@@ -35,6 +35,9 @@ export class ProductosComponent implements OnInit {
   constructor(private sproducto: ProductoService) { }
 
   ngOnInit(): void {
+    this.limpiar();
+    this.insertar();
+    this.validar();
     this.consultar();
     this.consultar_categoria();
   }
@@ -58,6 +61,7 @@ export class ProductosComponent implements OnInit {
   limpiar() {
     this.product.codigo = "";
     this.product.nombre = "";
+    this.product.fo_cate= 0;
     this.product.v_compra = 0;
     this.product.v_venta = 0;
     this.product.stock = 0;
