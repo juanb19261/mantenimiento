@@ -11,13 +11,13 @@ export class ProductoService {
   constructor(private http: HttpClient) { }
 
   consultar() {
-    return this.http.get (`${this.url}consultar.php`);
+    return this.http.get(`${this.url}consultar.php`);
   }
 
-   insertar(articulo: any) {
-    return this.http.post(`${this.url}insert.php`, JSON.stringify(articulo));
-   }
-   consultar_categoria() {
+  insertar(articulo: any) {
+    return this.http.post(`${this.url}insertar.php`, JSON.stringify(articulo));
+  }
+  consultar_categoria() {
     return this.http.get(`${this.url}consulta_categoria.php`);
   }
   // eliminar(id: number) {

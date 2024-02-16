@@ -22,7 +22,7 @@ export class ProductosComponent implements OnInit {
     v_venta: 0,
     stock: 0,
   };
-  
+
   // variables para validar
   validcodigo = true;
   validnombre = true;
@@ -36,10 +36,7 @@ export class ProductosComponent implements OnInit {
 
   ngOnInit(): void {
     this.limpiar();
-    this.insertar();
-    this.validar();
     this.consultar();
-    this.consultar_categoria();
   }
 
 
@@ -61,7 +58,7 @@ export class ProductosComponent implements OnInit {
   limpiar() {
     this.product.codigo = "";
     this.product.nombre = "";
-    this.product.fo_cate= 0;
+    this.product.fo_cate = 0;
     this.product.v_compra = 0;
     this.product.v_venta = 0;
     this.product.stock = 0;
@@ -111,10 +108,10 @@ export class ProductosComponent implements OnInit {
     this.validar();
     if (this.validcodigo == true && this.validnombre == true && this.validfo_cate == true && this.validcompra == true && this.validventa == true && this.validstock == true) {
 
-      this.sproducto.insertar(this.sproducto).subscribe((datos: any) => {
+      this.sproducto.insertar(this.product).subscribe((datos: any) => {
         if (datos['resultado'] == 'ok') {
           // alerta datos
-          this.insertar();
+          this.consultar();
         }
       })
       this.mostrar(0);

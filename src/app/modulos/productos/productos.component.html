@@ -17,7 +17,7 @@
         <div class="col-lg-3">
             <select id="fo_cate" class="form-control form-select" [(ngModel)]="product.fo_cate">
                 <option value="0" label="seleccionar categoria">seleccionar categoria</option>
-                <option *ngFor="let itemc of categoria" value="{{itemc.id_categoria}}" label="{{itemc.nombre}}"></option>
+                <option *ngFor="let itemc of categoria" value="{{itemc.id_cate}}" label="{{itemc.nombre}}"></option>
             </select>
             <span style="color: red;" *ngIf="validfo_cate==false"> seleccionar categoria</span>
         </div>
