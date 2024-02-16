@@ -37,6 +37,7 @@ export class ProductosComponent implements OnInit {
   ngOnInit(): void {
     this.limpiar();
     this.consultar();
+    this.consultar_categoria();
   }
 
 
