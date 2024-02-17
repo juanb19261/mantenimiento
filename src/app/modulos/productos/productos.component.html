@@ -81,13 +81,15 @@
                     <td>{{item.acciones}}</td>
 
                     <td>
-                        <a>
-                            <span class=" fas fa-edit editar " title="Editar"></span>
+                        <a (click)="cargardatos(item, item.id_producto)">
+                            <span class="fas fa-edit editar " title="Editar"></span>
+    
                         </a>
 
                         -
 
-                        <a>
+                        <a (click)="borrarusuario(item.id_producto)">
+
                             <span class=" fas fa-trash-alt eliminar" title="Eliminar"></span>
                         </a>
                     </td>
