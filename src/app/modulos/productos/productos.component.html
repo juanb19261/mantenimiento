@@ -34,13 +34,13 @@
             <input type="number" id="stock" class="form-control" [(ngModel)]="product.stock">
             <span style="color: red;" *ngIf="validstock==false"> Insertar stock </span>
         </div>
-        
-        
+
+
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-3">
                 <button *ngIf="beditar==false" class="btn btn-primary" (click)="insertar()">Guardar</button>
-                <button *ngIf="beditar==true" class="btn btn-primary">Editar</button>
+                <button *ngIf="beditar==true" class="btn btn-primary" (click)="editar()">Editar</button>
             </div>
             <div class="col-lg-3">
                 <button class="btn btn-secondary" (click)="mostrar(0)">Cancelar</button>
@@ -52,49 +52,42 @@
 </div>
 
 
-    <div class="table-responsive"><br>
+<div class="table-responsive"><br>
 
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>codigo</th>
-                    <th>nombre</th>
-                    <th>categoria</th>
-                    <th>v_compra</th>
-                    <th>v_venta</th>
-                    <th>stock</th>
-                    <th>acciones</th>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>codigo</th>
+                <th>nombre</th>
+                <th>categoria</th>
+                <th>v_compra</th>
+                <th>v_venta</th>
+                <th>stock</th>
+                <th>acciones</th>
 
-                </tr>
-            </thead>
-            <tbody>
+            </tr>
+        </thead>
+        <tbody>
 
-                <!-- mostrar producto -->
-                <tr *ngFor="let item of productos">
+            <!-- mostrar producto -->
+            <tr *ngFor="let item of productos">
 
-                    <td>{{item.codigo}}</td>
-                    <td>{{item.nombre}}</td>
-                    <td>{{item.ncategoria}}</td>
-                    <td>$ {{item.v_compra}}.00</td>
-                    <td>$ {{item.v_venta}}.00</td>
-                    <td>{{item.stock}}</td>
-                    <td>{{item.acciones}}</td>
-
-                    <td>
-                        <a (click)="cargardatos(item, item.id_producto)">
-                            <span class="fas fa-edit editar " title="Editar"></span>
-    
-                        </a>
-
-                        -
-
-                        <a (click)="borrarusuario(item.id_producto)">
-
-                            <span class=" fas fa-trash-alt eliminar" title="Eliminar"></span>
-                        </a>
-                    </td>
-
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                <td>{{item.codigo}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.ncategoria}}</td>
+                <td>$ {{item.v_compra}}.00</td>
+                <td>$ {{item.v_venta}}.00</td>
+                <td>{{item.stock}}</td>
+                <td>
+                    <a (click)="cargardatos(item, item.id_producto)">
+                        <span class="fas fa-edit editar " title="Editar"></span>
+                    </a>
+                    -
+                    <a (click)="pregunta(item.id_producto)">
+                        <span class=" fas fa-trash-alt eliminar" title="Eliminar"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

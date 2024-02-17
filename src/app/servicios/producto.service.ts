@@ -20,12 +20,12 @@ export class ProductoService {
   consultar_categoria() {
     return this.http.get(`${this.url}consulta_categoria.php`);
   }
-  // eliminar(id: number) {
-  //   return this.http.get('${this.url}eliminar.php?id=${id}');
-  // }
+  eliminar(id: number) {
+    return this.http.get(this.url + 'eliminar.php?id=' + id);
+  }
 
-  // editar(datos: any) {
-  //   return this.http.post('${this.url}editar.php', JSON.stringify(datos));
-  // }
+  editar(datos: any, id: number) {
+    return this.http.post(`${this.url}editar.php?id=${id}`, JSON.stringify(datos));
+  }
 
 }

@@ -134,10 +134,10 @@ export class ProductosComponent implements OnInit {
       console.log(this.productos);
     })
   }
-  pregunta(id: any, Nombre: any) {
+  pregunta(id: any) {
 
     Swal.fire({
-      title: 'Esta seguro eliminar usuario ' + Nombre + '?',
+      title: 'Esta seguro que quiere eliminar ?',
       text: "El proceso no podra ser revertido!",
       icon: "warning",
       showCancelButton: true,
@@ -158,8 +158,8 @@ export class ProductosComponent implements OnInit {
 
 
   borrarusuario(id: any) {
-    this.productos.eliminar(id).subscribe((datos: any) => {
-      if (datos['resultado'] == 'ok'){
+    this.sproducto.eliminar(id).subscribe((datos: any) => {
+      if (datos['resultado'] == 'ok') {
         this.consultar();
       }
     });
@@ -167,30 +167,31 @@ export class ProductosComponent implements OnInit {
   }
 
 
-  cargardatos(datos:any, id:number){
+  cargardatos(datos: any, id: number) {
     this.product.codigo = datos.codigo;
     this.product.nombre = datos.nombre;
     this.product.v_compra = datos.v_compra;
     this.product.v_venta = datos.v_venta;
-    this.product.stock= datos.stock;
-    this.product.fo_cate= datos.fo_cate;
+    this.product.stock = datos.stock;
+    this.product.fo_cate = datos.fo_cate;
+    this.idprod = id;
     this.mostrar(1);
     this.beditar = true;
   }
 
-  editar(){
+  editar() {
 
     this.validar();
-    
-    if (this.validcodigo == true && this.validnombre == true && this.validcompra == true && this.validventa == true && this.validstock == true && this.validfo_cate ) {
 
-      this.productos.editar(this.productos, this.idprod).subscribe((datos: any) => {
+    if (this.validcodigo == true && this.validnombre == true && this.validcompra == true && this.validventa == true && this.validstock == true && this.validfo_cate) {
+
+      this.sproducto.editar(this.product, this.idprod).subscribe((datos: any) => {
         if (datos['resultado'] == 'ok') {
           // alerta datos
           this.consultar();
         }
       })
-      this.mostrar(0);  
+      this.mostrar(0);
     }
   }
 
