@@ -6,17 +6,17 @@
 <div id="formulario" *ngIf="verf==true">
     <div class="row">
         <div class="col-lg-6">
-            <input type="text" id="Nombre" class="form-control" [(ngModel)]="user.Nombre"><br>
+            <input type="text" id="Nombre" class="form-control" [(ngModel)]="user.Nombre" placeholder="usuario"><br>
             <span style="color: red;" *ngIf="validNombre==false">Insertar Nombre</span>
         </div>
         <div class="col-lg-6">
-            <input type="email" id="usuario" class="form-control" [(ngModel)]="user.usuario"><br>
+            <input type="email" id="usuario" class="form-control" [(ngModel)]="user.usuario" placeholder="Email"><br>
             <span style="color: red;" *ngIf="validusuario==false"> Insertar usuario</span>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <input type="password" id="clave" class="form-control" [(ngModel)]="user.clave"><br>
+            <input type="password" id="clave" class="form-control" [(ngModel)]="user.clave" placeholder="Contraseña">
             <span style="color: red;" *ngIf="validclave==false">Insertar Contraseña</span>
         </div>
         <div class="col-lg-6">

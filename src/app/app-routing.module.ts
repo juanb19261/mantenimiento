@@ -7,6 +7,7 @@ import { FooterComponent } from "src/app/estructura/footer/footer.component"
 import { Usuarioscomponent } from './modulos/usuarios/usuarios.component';
 import { validaruserGuard } from './guards/validaruser.guard';
 import { ProductosComponent } from './modulos/productos/productos.component';
+import { ClientesComponent } from './modulos/clientes/clientes.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,9 @@ const routes: Routes = [
       { path: "dashboard", component: DashboardComponent },
       { path: "usuarios", component: Usuarioscomponent},
       { path: "productos", component: ProductosComponent},
+      { path: "clientes", component: ClientesComponent},
       { path: "", redirectTo: "/dashboard", pathMatch: "full" },
+      
     ],
   },
   { path: "login", component: LoginComponent },
