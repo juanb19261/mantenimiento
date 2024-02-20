@@ -66,11 +66,12 @@
             <!-- mostras usuarios -->
             <tr *ngFor="let item of clientes">
 
+                <td>{{item.id_cliente}}</td>
                 <td>{{item.codigo}}</td>
                 <td>{{item.nombre}}</td>
-                <td>{{item.direccion}}</td>
+                <td>{{item.Direccion}}</td>
                 <td>{{item.email}}</td>
-                <td>{{item.celular}}</td>
+                <td>{{item.Celular}}</td>
                 <td>
                     <a (click)="cargardatos(item, item.id_cliente)">
                         <span class=" fas fa-edit editar " title="Editar"></span>

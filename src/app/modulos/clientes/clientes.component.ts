@@ -98,7 +98,7 @@ export class ClientesComponent implements OnInit {
 
   consulta() {
     this.sclientes.consultar().subscribe((result: any) => {
-      this.client = result;
+      this.clientes = result;
       console.log(this.clientes);
     })
   }
