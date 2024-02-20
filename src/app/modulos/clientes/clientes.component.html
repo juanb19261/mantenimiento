@@ -15,9 +15,9 @@
         </div>
 
         <div class="col-lg-3">
-            <input type="text" id="direccion" class="form-control" [(ngModel)]="client.direccion"
+            <input type="text" id="Direccion" class="form-control" [(ngModel)]="client.Direccion"
                 placeholder="Direccion"><br>
-            <span style="color: red;" *ngIf="validdireccion==false">Insertar Direccion</span>
+            <span style="color: red;" *ngIf="validDireccion==false">Insertar Direccion</span>
         </div>
 
         <div class="col-lg-4">
@@ -26,9 +26,9 @@
         </div>
 
         <div class="col-lg-4">
-            <input type="email" id="celular" class="form-control" [(ngModel)]="client.celular"
+            <input type="email" id="Celular" class="form-control" [(ngModel)]="client.Celular"
                 placeholder="celular"><br>
-            <span style="color: red;" *ngIf="validcelular==false">Ingresar celular</span>
+            <span style="color: red;" *ngIf="validCelular==false">Ingresar celular</span>
         </div>
     </div>
 
@@ -65,8 +65,7 @@
 
             <!-- mostras usuarios -->
             <tr *ngFor="let item of clientes">
-
-                <td>{{item.id_cliente}}</td>
+                
                 <td>{{item.codigo}}</td>
                 <td>{{item.nombre}}</td>
                 <td>{{item.Direccion}}</td>

@@ -9,7 +9,7 @@ $params = json_decode($json);
 require ("../conexion.php");
 
 //$ins = "INSERT INTO clientes (Nombre_apellidos, Cedula, Direccion, Ciudad, Celular) VALUES ('juan', 234334, calle 23, cali, 3112347898)"
-$ins = "INSERT INTO  clientes (codigo, nombre,  Direccion, email, Celular) VALUES ('$params->codigo', '$params->nombre', '$params->Direccion', '$params->email','$params->Celular')";
+$ins = "INSERT INTO  clientes(codigo, nombre, Direccion, email, Celular) VALUES ('$params->codigo','$params->nombre', '$params->Direccion', '$params->email','$params->Celular')";
 
 mysqli_query ($conexion,$ins) or die ("no inserto");
 

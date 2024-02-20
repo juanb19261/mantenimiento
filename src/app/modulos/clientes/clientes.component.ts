@@ -15,17 +15,17 @@ export class ClientesComponent implements OnInit {
   client = {
     codigo: "",
     nombre: "",
-    direccion: "",
+    Direccion: "",
     email: "",
-    celular: ""
+    Celular: "",
   };
   
   // variables para validar
   validcodigo = true
   validnombre = true
-  validdireccion = true
+  validDireccion = true
   validemail = true
-  validcelular = true
+  validCelular = true
   beditar = false;
 
   constructor(private sclientes: clientesService) { }
@@ -54,9 +54,9 @@ export class ClientesComponent implements OnInit {
   limpiar() {
     this.client.codigo = "";
     this.client.nombre = "";
-    this.client.direccion = "";
+    this.client.Direccion = "";
     this.client.email = "";
-    this.client.celular = "";
+    this.client.Celular = "";
   }
 
   // validar formulario
@@ -75,10 +75,10 @@ export class ClientesComponent implements OnInit {
     }
 
 
-    if (this.client.direccion == "") {
-      this.validdireccion = false;
+    if (this.client.Direccion == "") {
+      this.validDireccion = false;
     } else {
-      this.validdireccion = true;
+      this.validDireccion = true;
     }
 
     if (this.client.email == "") {
@@ -87,10 +87,10 @@ export class ClientesComponent implements OnInit {
       this.validemail = true;
     }
 
-    if (this.client.celular == "") {
-      this.validcelular = false;
+    if (this.client.Celular == "") {
+      this.validCelular = false;
     } else {
-      this.validcelular = true;
+      this.validCelular = true;
     }
 
   }
@@ -105,7 +105,7 @@ export class ClientesComponent implements OnInit {
 
   ingresar() {
     this.validar();
-    if (this.validcodigo == true && this.validnombre == true && this.validdireccion == true && this.validemail == true && this.validcelular) {
+    if (this.validcodigo == true && this.validnombre == true && this.validDireccion == true && this.validemail == true && this.validCelular) {
 
       this.sclientes.insertar(this.client).subscribe((datos: any) => {
         if (datos['resultado'] == 'ok') {
@@ -152,9 +152,9 @@ export class ClientesComponent implements OnInit {
   cargardatos(datos: any, id: number) {
     this.client.codigo = datos.codigo;
     this.client.nombre = datos.nombre;
-    this.client.direccion = datos.direccion;
+    this.client.Direccion = datos.Direccion;
     this.client.email = datos.email;
-    this.client.celular = datos.Celular;
+    this.client.Celular = datos.Celular;
     this.idcliente = id;
     this.mostrar(1);
     this.beditar = true;
@@ -164,7 +164,7 @@ export class ClientesComponent implements OnInit {
 
     this.validar();
 
-    if (this.validcodigo == true && this.validnombre == true && this.validdireccion == true && this.validemail == true && this.validcelular) {
+    if (this.validcodigo == true && this.validnombre == true && this.validDireccion == true && this.validemail == true && this.validCelular) {
 
       this.sclientes.editar(this.client, this.idcliente).subscribe((datos: any) => {
         if (datos['resultado'] == 'ok') {
