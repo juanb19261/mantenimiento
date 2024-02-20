@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-02-2024 a las 17:38:16
+-- Tiempo de generación: 20-02-2024 a las 18:38:50
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -71,23 +71,19 @@ INSERT INTO `ciudad` (`id_ciudad`, `nombre`, `id_departamento`) VALUES
 
 CREATE TABLE `clientes` (
   `id_cliente` int(11) NOT NULL,
-  `ident` varchar(50) NOT NULL,
+  `codigo` varchar(50) NOT NULL,
   `nombre` varchar(150) NOT NULL,
   `Direccion` varchar(150) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `Celular` varchar(50) NOT NULL
+  `Celular` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id_cliente`, `ident`, `nombre`, `Direccion`, `email`, `Celular`) VALUES
-(1, 'andres hernesto bustamante', '11148909898', 'calle 26 esquina 108', 'ibague', '3112345454'),
-(2, 'carlos arturo monsalve', '11234690', 'carrera 25 ', 'san andres', '3117675645'),
-(3, 'juan bejarano', '1114989076', 'calle 24 esquina', 'cali', '3224302110'),
-(4, 'neron navarrete', '1112324567', 'calle 8', 'barranquilla', '3105678900'),
-(5, 'juan bejarano', '1114989076', 'calle 24 esquina', 'cali', '3224302110');
+INSERT INTO `clientes` (`id_cliente`, `codigo`, `nombre`, `Direccion`, `email`, `Celular`) VALUES
+(13, '001', 'bryan Ernesto rivas', '', 'bryan14@gmail.com', '0');
 
 -- --------------------------------------------------------
 
@@ -102,18 +98,18 @@ CREATE TABLE `compras` (
   `subtotal` double NOT NULL,
   `iva` double NOT NULL,
   `total` double NOT NULL,
-  `r_usuario` int(11) NOT NULL,
-  `r_producto` longtext NOT NULL,
-  `r_proveedor` int(11) NOT NULL
+  `fo_usuario` int(11) NOT NULL,
+  `fo_producto` int(11) NOT NULL,
+  `fo_proveedor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `compras`
 --
 
-INSERT INTO `compras` (`id_compras`, `fecha`, `cantidad`, `subtotal`, `iva`, `total`, `r_usuario`, `r_producto`, `r_proveedor`) VALUES
-(1, '0000-00-00 00:00:00', 3, 6, 2800, 17800, 1, '1', 1),
-(2, '2024-02-10 18:42:13', 23, 18900, 1000, 19900, 3, 'dojiosidc', 1);
+INSERT INTO `compras` (`id_compras`, `fecha`, `cantidad`, `subtotal`, `iva`, `total`, `fo_usuario`, `fo_producto`, `fo_proveedor`) VALUES
+(1, '0000-00-00 00:00:00', 3, 6, 2800, 17800, 1, 1, 1),
+(2, '2024-02-10 18:42:13', 23, 18900, 1000, 19900, 3, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -181,8 +177,10 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `codigo`, `nombre`, `v_compra`, `v_venta`, `stock`, `fo_cate`) VALUES
-(1, '1', 'teclados', 20000, 25000, 8, 2),
-(2, '3', 'memoria ram ', 23000, 25000, 8, 1);
+(1, '001', 'teclados', 20000, 25000, 8, 2),
+(2, '003', 'memoria ram ', 23000, 25000, 8, 1),
+(3, '002', 'mouses ergonomicos', 10000, 12000, 10, 1),
+(4, '004', 'teclado digital', 18000, 20000, 6, 2);
 
 -- --------------------------------------------------------
 
@@ -276,8 +274,9 @@ ALTER TABLE `clientes`
 --
 ALTER TABLE `compras`
   ADD PRIMARY KEY (`id_compras`),
-  ADD KEY `r_usuario` (`r_usuario`),
-  ADD KEY `r_proveedor` (`r_proveedor`);
+  ADD KEY `fo_proveedor` (`fo_proveedor`) USING BTREE,
+  ADD KEY `fo_usuario` (`fo_usuario`) USING BTREE,
+  ADD KEY `fo_producto` (`fo_producto`);
 
 --
 -- Indices de la tabla `departamento`
@@ -338,7 +337,7 @@ ALTER TABLE `ciudad`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `compras`
@@ -362,7 +361,7 @@ ALTER TABLE `inventario`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
@@ -390,8 +389,9 @@ ALTER TABLE `ciudad`
 -- Filtros para la tabla `compras`
 --
 ALTER TABLE `compras`
-  ADD CONSTRAINT `compras_ibfk_1` FOREIGN KEY (`r_usuario`) REFERENCES `usuarios` (`id_usuario`),
-  ADD CONSTRAINT `compras_ibfk_2` FOREIGN KEY (`r_proveedor`) REFERENCES `proveedor` (`id_proveedor`);
+  ADD CONSTRAINT `compras_ibfk_1` FOREIGN KEY (`fo_usuario`) REFERENCES `usuarios` (`id_usuario`),
+  ADD CONSTRAINT `compras_ibfk_2` FOREIGN KEY (`fo_proveedor`) REFERENCES `proveedor` (`id_proveedor`),
+  ADD CONSTRAINT `compras_ibfk_3` FOREIGN KEY (`id_compras`) REFERENCES `producto` (`id_producto`);
 
 --
 -- Filtros para la tabla `producto`
