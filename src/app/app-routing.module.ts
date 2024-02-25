@@ -8,6 +8,7 @@ import { Usuarioscomponent } from './modulos/usuarios/usuarios.component';
 import { validaruserGuard } from './guards/validaruser.guard';
 import { ProductosComponent } from './modulos/productos/productos.component';
 import { ClientesComponent } from './modulos/clientes/clientes.component';
+import { ComprasComponent } from './modulos/compras/compras.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: "usuarios", component: Usuarioscomponent},
       { path: "productos", component: ProductosComponent},
       { path: "clientes", component: ClientesComponent},
+      { path: "compras", component: ComprasComponent},
       { path: "", redirectTo: "/dashboard", pathMatch: "full" },
       
     ],

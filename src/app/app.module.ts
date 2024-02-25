@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { Usuarioscomponent } from './modulos/usuarios/usuarios.component';
 import { ProductosComponent } from './modulos/productos/productos.component';
 import { ClientesComponent } from './modulos/clientes/clientes.component';
+import { ComprasComponent } from './modulos/compras/compras.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ClientesComponent } from './modulos/clientes/clientes.component';
     LoginComponent,
     Usuarioscomponent,
     ProductosComponent,
-    ClientesComponent
+    ClientesComponent,
+    ComprasComponent
   ],
   imports: [
     BrowserModule,

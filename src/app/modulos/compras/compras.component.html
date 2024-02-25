@@ -1,0 +1,117 @@
+<hr>
+<h1 class="text-left">COMPRAS</h1>
+<button class=" btn btn-primary" (click)="mostrar(1)">insertar compra</button>
+<div id="formulario" *ngIf="verf==true"><br>
+    <div class="row">
+
+        <div class="col-lg-4">
+            <input type="text" id="fecha" class="form-control" [(ngModel)]="compra.fecha" placeholder="fecha">
+            <span style="color: red;" *ngIf="validfecha==false">Insertar fecha</span>
+        </div>
+
+        <div class="col-lg-4">
+            <input type="number" id="cantidad" class="form-control" [(ngModel)]="compra.cantidad"
+                placeholder="cantidad del producto">
+            <span style="color: red;" *ngIf="validcantidad==false"> Insertar cantidad</span>
+        </div>
+
+        <div class="col-lg-3">
+            <input type="number" id="subtotal" class="form-control" [(ngModel)]="compra.subtotal">
+            <span style="color: red;" *ngIf="validsubtotal==false"> Insertar subtotal </span>
+        </div>
+
+        <div class="col-lg-4">
+            <input type="number" id="iva" class="form-control" [(ngModel)]="compra.iva" placeholder="valor de iva">
+            <span style="color: red;" *ngIf="validiva==false"> Insertar valor del iva </span>
+        </div>
+
+        <div class="col-lg-4">
+            <input type="number" id="total" class="form-control" [(ngModel)]="compra.total">
+            <span style="color: red;" *ngIf="validtotal==false"> Insertar subtotal</span>
+        </div>
+
+        <div class="col-lg-3">
+            <select id="subt" class="form-control form-select" [(ngModel)]="compra.fo_usuario">
+                <option value="0" label="seleccionar categoria">selecci</option>
+                <option *ngFor="let itemc of categoria" value="{{itemc.id_usuario}}" label="{{itemc.nombre}}"></option>
+            </select>
+            <span style="color: red;" *ngIf="validfo_usuario==false"> seleccionar categoria</span>
+        </div>
+
+        <div class="col-lg-4">
+            <select id="subt" class="form-control form-select" [(ngModel)]="compra.fo_producto">
+                <option value="0" label="seleccionar categoria">selecci</option>
+                <option *ngFor="let itemc of categoria" value="{{itemc.id_po}}" label="{{itemc.nombre}}"></option>
+            </select>
+            <span style="color: red;" *ngIf="validfo_producto==false"> seleccionar categoria</span>
+        </div>
+
+        <div class="col-lg-4">
+            <select id="subt" class="form-control form-select" [(ngModel)]="compra.fo_proveedor">
+                <option value="0" label="seleccionar categoria">selecci</option>
+                <option *ngFor="let itemc of categoria" value="{{itemc.id_pr}}" label="{{itemc.nombre}}"></option>
+            </select>
+            <span style="color: red;" *ngIf="validfo_proveedor==false"> seleccionar categoria</span>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-3">
+                <button *ngIf="beditar==false" class="btn btn-primary" (click)="insertar()">Guardar</button>
+                <button *ngIf="beditar==true" class="btn btn-primary" (click)="editar()">Editar</button>
+            </div><br>
+
+            <div class="col-lg-3">
+                <button class="btn btn-secondary" (click)="mostrar(0)">Cancelar</button>
+            </div>
+
+            <div class="col-lg-3"></div>
+        </div>
+    </div><br>
+    
+</div>
+
+<div class="table-responsive"><br>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>fecha</th>
+                <th>cantidad</th>
+                <th>subtotal</th>
+                <th>iva</th>
+                <th>total</th>
+                <th>fo_usuario</th>
+                <th>fo_producto</th>
+                <th>fo_proveedor</th>
+                <th>acciones</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <!--mostrar producto -->
+            <tr *ngFor="let item of compras">
+
+                <td>{{item.fecha}}</td>
+                <td>{{item.cantidad}}</td>
+                <td>{{item.subtotal}}</td>
+                <td>$ {{item.iva}}</td>
+                <td>$ {{item.total}}</td>
+                <td>$ {{item.fo_usuario}}</td>
+                <td>$ {{item.fo_producto}}</td>
+                <td>$ {{item.fo_proveedor}}</td>
+
+                <td>
+                    <a (click)="cargardatos(item, item.id_compras)">
+                        <span class="fas fa-edit editar " title="Editar"></span>
+                    </a>
+                    -
+                    <a (click)="pregunta(item.id_compras)">
+                        <span class=" fas fa-trash-alt eliminar" title="Eliminar"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
