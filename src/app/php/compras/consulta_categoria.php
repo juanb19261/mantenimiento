@@ -4,7 +4,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 require("../conexion.php");
 
-$con = "SELECT * from  categoria ORDER BY cantidad";
+$con = "SELECT * from  categoria ORDER BY nombre";
 $res= mysqli_query($conexion,$con) or die("no_consulto_categoria");
 
     

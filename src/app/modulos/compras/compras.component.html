@@ -4,10 +4,10 @@
 <div id="formulario" *ngIf="verf==true"><br>
     <div class="row">
 
-        <div class="col-lg-4">
-            <input type="text" id="fecha" class="form-control" [(ngModel)]="compra.fecha" placeholder="fecha">
+        <!-- <div class="col-lg-4">
+            <input type="datetime-local" id="fecha" class="form-control" [(ngModel)]="compra.fecha" placeholder="fecha">
             <span style="color: red;" *ngIf="validfecha==false">Insertar fecha</span>
-        </div>
+        </div> -->
 
         <div class="col-lg-4">
             <input type="number" id="cantidad" class="form-control" [(ngModel)]="compra.cantidad"
@@ -33,7 +33,7 @@
         <div class="col-lg-3">
             <select id="subt" class="form-control form-select" [(ngModel)]="compra.fo_usuario">
                 <option value="0" label="seleccionar categoria">selecci</option>
-                <option *ngFor="let itemc of categoria" value="{{itemc.id_usuario}}" label="{{itemc.nombre}}"></option>
+                <option *ngFor="let itemc of categoria_usuario" value="{{itemc.id_usuario}}" label="{{itemc.usuario}}"></option>
             </select>
             <span style="color: red;" *ngIf="validfo_usuario==false"> seleccionar categoria</span>
         </div>
@@ -41,7 +41,7 @@
         <div class="col-lg-4">
             <select id="subt" class="form-control form-select" [(ngModel)]="compra.fo_producto">
                 <option value="0" label="seleccionar categoria">selecci</option>
-                <option *ngFor="let itemc of categoria" value="{{itemc.id_po}}" label="{{itemc.nombre}}"></option>
+                <option *ngFor="let itemc of categoria_producto" value="{{itemc.id_cate}}" label="{{itemc.nombre}}"></option>
             </select>
             <span style="color: red;" *ngIf="validfo_producto==false"> seleccionar categoria</span>
         </div>
@@ -49,7 +49,7 @@
         <div class="col-lg-4">
             <select id="subt" class="form-control form-select" [(ngModel)]="compra.fo_proveedor">
                 <option value="0" label="seleccionar categoria">selecci</option>
-                <option *ngFor="let itemc of categoria" value="{{itemc.id_pr}}" label="{{itemc.nombre}}"></option>
+                <option *ngFor="let itemc of categoria_proveedor" value="{{itemc.id_proveedor}}" label="{{itemc.nombre}}"></option>
             </select>
             <span style="color: red;" *ngIf="validfo_proveedor==false"> seleccionar categoria</span>
         </div>
@@ -81,9 +81,9 @@
                 <th>subtotal</th>
                 <th>iva</th>
                 <th>total</th>
-                <th>fo_usuario</th>
-                <th>fo_producto</th>
-                <th>fo_proveedor</th>
+                <th>usuario</th>
+                <th>producto</th>
+                <th>proveedor</th>
                 <th>acciones</th>
 
             </tr>
@@ -98,9 +98,9 @@
                 <td>{{item.subtotal}}</td>
                 <td>$ {{item.iva}}</td>
                 <td>$ {{item.total}}</td>
-                <td>$ {{item.fo_usuario}}</td>
-                <td>$ {{item.fo_producto}}</td>
-                <td>$ {{item.fo_proveedor}}</td>
+                <td>{{item.fo_usuario}}</td>
+                <td>{{item.fo_producto}}</td>
+                <td>{{item.fo_proveedor}}</td>
 
                 <td>
                     <a (click)="cargardatos(item, item.id_compras)">

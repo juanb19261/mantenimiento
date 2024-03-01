@@ -10,10 +10,12 @@ import Swal from 'sweetalert2';
 export class ComprasComponent implements OnInit {
   verf = false;
   compras: any;
-  categoria: any;
+  categoria_producto: any;
+  categoria_usuario : any;
+  categoria_proveedor : any;
   idcompras: any;
   compra = {
-    fecha: "",
+    // fecha: "",
     cantidad: 0,
     subtotal: 0,
     iva: 0,
@@ -37,7 +39,11 @@ export class ComprasComponent implements OnInit {
   constructor(private scompras: comprasService) { }
 
   ngOnInit(): void {
+    this.consulta();
     this.limpiar();
+    this.consultar_categoria_usuario();
+    this.consultar_categoria_producto();
+    this.consultar_categoria_provedor();
   }
 
 
@@ -57,7 +63,7 @@ export class ComprasComponent implements OnInit {
   }
 
   limpiar() {
-    this.compra.fecha = "";
+    // this.compra.fecha = "";
     this.compra.cantidad = 0;
     this.compra.subtotal = 0;
     this.compra.iva = 0;
@@ -69,11 +75,11 @@ export class ComprasComponent implements OnInit {
 
   // validar formulario
   validar() {
-    if (this.compra.fecha == "") {
-      this.validfecha = false;
-    } else {
-      this.validfecha = true;
-    }
+    // if (this.compra.fecha == "") {
+    //   this.validfecha = false;
+    // } else {
+    //   this.validfecha = true;
+    // }
 
     if (this.compra.cantidad == 0) {
       this.validcantidad = false;
@@ -136,10 +142,24 @@ export class ComprasComponent implements OnInit {
     })
   }
 
-
-  consultar_categoria() {
+  //consultar categoria usuario
+  consultar_categoria_usuario() {
+    this.scompras.consulta_categoria_usuario().subscribe((result: any) => {
+      this.categoria_usuario = result;
+      console.log(this.compras);
+    })
+  }
+  //consulta categoria producto
+  consultar_categoria_producto() {
     this.scompras.consulta_categoria().subscribe((result: any) => {
-      this.categoria = result;
+      this.categoria_producto = result;
+      console.log(this.compras);
+    })
+  }
+  //consulta categoria provedor
+  consultar_categoria_provedor() {
+    this.scompras.consulta_categoria_proveedor().subscribe((result: any) => {
+      this.categoria_proveedor = result;
       console.log(this.compras);
     })
   }
@@ -178,7 +198,8 @@ export class ComprasComponent implements OnInit {
 
 
   cargardatos(datos: any, id: Number) {
-    this.compra.fecha = datos.fecha;
+    console.log(datos);
+    // this.compra.fecha = datos.fecha;
     this.compra.cantidad = datos.cantidad;
     this.compra.subtotal = datos.subtotal;
     this.compra.iva = datos.iva;

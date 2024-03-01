@@ -4,9 +4,12 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class comprasService{
+export class comprasService {
 
   url = 'http://localhost/mantenimiento/src/app/php/compras/';
+  url2 = 'http://localhost/mantenimiento/src/app/php/usuarios/';
+  url3 = 'http://localhost/mantenimiento/src/app/php/proveedor/'
+
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +22,13 @@ export class comprasService{
   }
   consulta_categoria() {
     return this.http.get(`${this.url}consulta_categoria.php`);
+  }
+
+  consulta_categoria_usuario() {
+    return this.http.get(`${this.url2}consulta.php`);
+  }
+  consulta_categoria_proveedor() {
+    return this.http.get(`${this.url3}consulta.php`);
   }
   eliminar(id: number) {
     return this.http.get(this.url + 'eliminar.php?id=' + id);
