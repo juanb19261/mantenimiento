@@ -146,21 +146,18 @@ export class ComprasComponent implements OnInit {
   consultar_categoria_usuario() {
     this.scompras.consulta_categoria_usuario().subscribe((result: any) => {
       this.categoria_usuario = result;
-      console.log(this.compras);
     })
   }
   //consulta categoria producto
   consultar_categoria_producto() {
     this.scompras.consulta_categoria().subscribe((result: any) => {
       this.categoria_producto = result;
-      console.log(this.compras);
     })
   }
   //consulta categoria provedor
   consultar_categoria_provedor() {
     this.scompras.consulta_categoria_proveedor().subscribe((result: any) => {
       this.categoria_proveedor = result;
-      console.log(this.compras);
     })
   }
 

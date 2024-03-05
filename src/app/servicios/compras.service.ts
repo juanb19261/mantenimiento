@@ -8,7 +8,8 @@ export class comprasService {
 
   url = 'http://localhost/mantenimiento/src/app/php/compras/';
   url2 = 'http://localhost/mantenimiento/src/app/php/usuarios/';
-  url3 = 'http://localhost/mantenimiento/src/app/php/proveedor/'
+  url3 = 'http://localhost/mantenimiento/src/app/php/proveedor/';
+  url4 = 'http://localhost/mantenimiento/src/app/php/producto/'
 
 
   constructor(private http: HttpClient) { }
@@ -21,7 +22,7 @@ export class comprasService {
     return this.http.post(`${this.url}insertar.php`, JSON.stringify(articulo));
   }
   consulta_categoria() {
-    return this.http.get(`${this.url}consulta_categoria.php`);
+    return this.http.get(`${this.url4}consultar.php`);
   }
 
   consulta_categoria_usuario() {

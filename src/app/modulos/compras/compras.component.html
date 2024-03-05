@@ -32,24 +32,27 @@
 
         <div class="col-lg-3">
             <select id="subt" class="form-control form-select" [(ngModel)]="compra.fo_usuario">
-                <option value="0" label="seleccionar categoria">selecci</option>
-                <option *ngFor="let itemc of categoria_usuario" value="{{itemc.id_usuario}}" label="{{itemc.usuario}}"></option>
+                <option value="0" label="seleccionar usuario">selecci</option>
+                <option *ngFor="let itemc of categoria_usuario" value="{{itemc.id_usuario}}" label="{{itemc.Nombre}}">
+                </option>
             </select>
             <span style="color: red;" *ngIf="validfo_usuario==false"> seleccionar categoria</span>
         </div>
 
         <div class="col-lg-4">
             <select id="subt" class="form-control form-select" [(ngModel)]="compra.fo_producto">
-                <option value="0" label="seleccionar categoria">selecci</option>
-                <option *ngFor="let itemc of categoria_producto" value="{{itemc.id_cate}}" label="{{itemc.nombre}}"></option>
+                <option value="0" label="seleccionar producto">selecci</option>
+                <option *ngFor="let itemc of categoria_producto" value="{{itemc.id_producto}}" label="{{itemc.nombre}}">
+                </option>
             </select>
             <span style="color: red;" *ngIf="validfo_producto==false"> seleccionar categoria</span>
         </div>
 
         <div class="col-lg-4">
             <select id="subt" class="form-control form-select" [(ngModel)]="compra.fo_proveedor">
-                <option value="0" label="seleccionar categoria">selecci</option>
-                <option *ngFor="let itemc of categoria_proveedor" value="{{itemc.id_proveedor}}" label="{{itemc.nombre}}"></option>
+                <option value="0" label="seleccionar proveeedor">selecci</option>
+                <option *ngFor="let itemc of categoria_proveedor" value="{{itemc.id_proveedor}}"
+                    label="{{itemc.nombre}}"></option>
             </select>
             <span style="color: red;" *ngIf="validfo_proveedor==false"> seleccionar categoria</span>
         </div>
@@ -68,7 +71,7 @@
             <div class="col-lg-3"></div>
         </div>
     </div><br>
-    
+
 </div>
 
 <div class="table-responsive"><br>
@@ -98,9 +101,9 @@
                 <td>{{item.subtotal}}</td>
                 <td>$ {{item.iva}}</td>
                 <td>$ {{item.total}}</td>
-                <td>{{item.fo_usuario}}</td>
-                <td>{{item.fo_producto}}</td>
-                <td>{{item.fo_proveedor}}</td>
+                <td>{{item.nfo_usuario}}</td>
+                <td>{{item.nfo_producto}}</td>
+                <td>{{item.nfo_proveedor}}</td>
 
                 <td>
                     <a (click)="cargardatos(item, item.id_compras)">
