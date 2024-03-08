@@ -1,0 +1,118 @@
+<hr>
+<h1 class="text-left">VENTAS</h1>
+<button class=" btn btn-primary" (click)="mostrar(1)">insertar venta</button>
+<div id="formulario" *ngIf="verf==true"><br>
+    <div class="row">
+
+        <!-- <div class="col-lg-4">
+            <input type="datetime-local" id="fecha" class="form-control" [(ngModel)]="compra.fecha" placeholder="fecha">
+            <span style="color: red;" *ngIf="validfecha==false">Insertar fecha</span>
+        </div> -->
+
+        <div class="col-lg-4">
+            <input type="number" id="cantidad" class="form-control" [(ngModel)]="venta.cantidad"
+                placeholder="cantidad del producto">
+            <span style="color: red;" *ngIf="validcantidad==false"> Insertar cantidad</span>
+        </div>
+
+        <div class="col-lg-3">
+            <input type="number" id="subtotal" class="form-control" [(ngModel)]="venta.subtotal">
+            <span style="color: red;" *ngIf="validsubtotal==false"> Insertar subtotal </span>
+        </div>
+
+        <div class="col-lg-4">
+            <input type="number" id="iva" class="form-control" [(ngModel)]="venta.iva" placeholder="valor de iva">
+            <span style="color: red;" *ngIf="validiva==false"> Insertar valor del iva </span>
+        </div>
+
+        <div class="col-lg-4">
+            <input type="number" id="total" class="form-control" [(ngModel)]="venta.total">
+            <span style="color: red;" *ngIf="validtotal==false"> Insertar subtotal</span>
+        </div>
+
+        <div class="col-lg-3">
+            <select id="subt" class="form-control form-select" [(ngModel)]="venta.fo_usuarios">
+                <option value="0" label="seleccionar usuario">selecci</option>
+                <option *ngFor="let itemc of categoria_usuarios" value="{{itemc.id_usuario}}" label="{{itemc.Nombre}}">
+                </option>
+            </select>
+            <span style="color: red;" *ngIf="validfo_usuarios==false"> seleccionar categoria</span>
+        </div>
+
+        <div class="col-lg-4">
+            <select id="subt" class="form-control form-select" [(ngModel)]="venta.fo_producto">
+                <option value="0" label="seleccionar producto">selecci</option>
+                <option *ngFor="let itemc of categoria_producto" value="{{itemc.id_producto}}" label="{{itemc.nombre}}">
+                </option>
+            </select>
+            <span style="color: red;" *ngIf="validfo_producto==false"> seleccionar categoria</span>
+        </div>
+
+        <div class="col-lg-4">
+            <select id="subt" class="form-control form-select" [(ngModel)]="venta.fo_clientes">
+                <option value="0" label="seleccionar clientes">selecci</option>
+                <option *ngFor="let itemc of categoria_clientes" value="{{itemc.id_cliente}}"
+                    label="{{itemc.nombre}}"></option>
+            </select>
+            <span style="color: red;" *ngIf="validfo_clientes==false"> seleccionar categoria</span>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-3">
+                <button *ngIf="beditar==false" class="btn btn-primary" (click)="insertar()">Guardar</button>
+                <button *ngIf="beditar==true" class="btn btn-primary" (click)="editar()">Editar</button>
+            </div><br>
+
+            <div class="col-lg-3">
+                <button class="btn btn-secondary" (click)="mostrar(0)">Cancelar</button>
+            </div>
+
+            <div class="col-lg-3"></div>
+        </div>
+    </div><br>
+
+</div>
+
+<div class="table-responsive"><br>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>fecha</th>
+                <th>cantidad</th>
+                <th>subtotal</th>
+                <th>iva</th>
+                <th>total</th>
+                <th>usuarios</th>
+                <th>producto</th>
+                <th>clientes</th>
+                <th>acciones</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <!--mostrar producto -->
+            <tr *ngFor="let item of ventas">
+
+                <td>{{item.fecha}}</td>
+                <td>{{item.cantidad}}</td>
+                <td>{{item.subtotal}}</td>
+                <td>$ {{item.iva}}</td>
+                <td>$ {{item.total}}</td>
+                <td>{{item.nfo_usuarios}}</td>
+                <td>{{item.nfo_producto}}</td>
+                <td>{{item.nfo_clientes}}</td>
+
+                <td>
+                    <a (click)="cargardatos(item, item.id_ventas)">
+                        <span class="fas fa-edit editar " title="Editar"></span>
+                    </a>
+                    -
+                    <a (click)="pregunta(item.id_ventas)">
+                        <span class=" fas fa-trash-alt eliminar" title="Eliminar"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>

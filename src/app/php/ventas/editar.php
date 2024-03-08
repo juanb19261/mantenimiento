@@ -6,10 +6,13 @@ $json = file_get_contents ("php://input");
 
 $params = json_decode($json);
 
+$id = $_GET['id'];
+
 require ("../conexion.php");
 
-$editar = " UPDATE  ventas SET Cantidad='$params->Cantidad', subtotal='$params->subtotal', Total='$params->Total', id_cliente='$params->id_cliente'  WHERE id_ventas='$params->id_ventas";
-mysqli_query($conexion,$ins) or die ("no inserto");
+$editar = " UPDATE  ventas SET cantidad='$params->cantidad', subtotal='$params->subtotal', iva='$params->iva', total='$params->total', fo_usuarios='$params->fo_usuarios', fo_producto='$params->fo_producto', fo_clientes='$params->fo_clientes'  WHERE id_ventas='$id'";
+
+mysqli_query($conexion,$editar) or die ("no inserto");
 
 Class Result{}
 

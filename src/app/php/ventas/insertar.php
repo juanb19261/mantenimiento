@@ -9,7 +9,7 @@ $params = json_decode($json);
 require ("../conexion.php");
 
 //$ins = "INSERT INTO ventas (Cantidad, subtotal, Total, id_cliente) VALUES ('2, 3, 5, 1')"
-$ins = "INSERT INTO  ventas (Cantidad, subtotal, Total, id_cliente) VALUES ('$params->Cantidad', '$params->subtotal', '$params->Total', '$params->id_cliente')";
+$ins = "INSERT INTO  ventas(cantidad, subtotal, iva, total, fo_usuarios, fo_producto, fo_clientes) VALUES ('$params->cantidad', '$params->subtotal', '$params->iva', '$params->total', '$params->fo_usuarios', '$params->fo_producto', '$params->fo_clientes')";
 
 
 

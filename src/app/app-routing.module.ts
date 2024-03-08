@@ -9,6 +9,7 @@ import { validaruserGuard } from './guards/validaruser.guard';
 import { ProductosComponent } from './modulos/productos/productos.component';
 import { ClientesComponent } from './modulos/clientes/clientes.component';
 import { ComprasComponent } from './modulos/compras/compras.component';
+import { VentasComponent } from './modulos/ventas/ventas.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: "productos", component: ProductosComponent},
       { path: "clientes", component: ClientesComponent},
       { path: "compras", component: ComprasComponent},
+      { path: "ventas", component: VentasComponent},
       { path: "", redirectTo: "/dashboard", pathMatch: "full" },
       
     ],
