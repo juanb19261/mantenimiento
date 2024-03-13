@@ -1,7 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { ChildrenOutletContexts, RouterModule, Routes } from '@angular/router';
 import { PrincipalComponent } from './modulos/principal.component';
-import { DashboardComponent } from './modulos/dashboard/dashboard.component';
+import { dashboardComponent} from './modulos/dashboard/dashboard.component';
 import { LoginComponent } from './modulos/login/login.component';
 import { FooterComponent } from "src/app/estructura/footer/footer.component"
 import { Usuarioscomponent } from './modulos/usuarios/usuarios.component';
@@ -16,13 +16,13 @@ const routes: Routes = [
     path: "", component: PrincipalComponent,
     canActivate: [validaruserGuard],
     children: [
-      { path: "dashboard", component: DashboardComponent },
+      { path: "dashboard", component: dashboardComponent},
       { path: "usuarios", component: Usuarioscomponent},
       { path: "productos", component: ProductosComponent},
       { path: "clientes", component: ClientesComponent},
       { path: "compras", component: ComprasComponent},
       { path: "ventas", component: VentasComponent},
-      { path: "", redirectTo: "/dashboard", pathMatch: "full" },
+      { path: "dashboard", redirectTo: "login", pathMatch: "full" },
       
     ],
   },
