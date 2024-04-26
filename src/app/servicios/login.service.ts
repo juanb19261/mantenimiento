@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LoginService {
-  url = 'http://localhost/mantenimiento/src/app/php/login/';
+  url = 'https://teamvisionw.000webhostapp.com/backend/login/';
 
   constructor(private http: HttpClient) { }
 

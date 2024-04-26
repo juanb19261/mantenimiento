@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class dashboardService {
-  url = 'http://localhost/mantenimiento/src/app/php/dashboard/';
+  url = 'https://teamvisionw.000webhostapp.com/backend/dashboard/';
 
   constructor(private http: HttpClient ) { }
 

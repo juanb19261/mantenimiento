@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UsuariosService {
 
-  url = 'http://localhost/mantenimiento/src/app/inventario/';
+  url = 'https://teamvisionw.000webhostapp.com/backend/inventario/';
 
   constructor(private http: HttpClient) { }
 

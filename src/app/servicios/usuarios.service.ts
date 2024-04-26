@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UsuariosService {
 
-  url = 'http://localhost/mantenimiento/src/app/php/usuarios/';
+  url = 'https://teamvisionw.000webhostapp.com/backend/usuarios/';
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +18,7 @@ export class UsuariosService {
     return this.http.post(`${this.url}insertar.php`, JSON.stringify(articulo));
   }
 
-  eliminar(id:number) {
+  eliminar(id: number) {
     return this.http.get(`${this.url}eliminar.php?id=${id}`);
   }
 

@@ -8,10 +8,10 @@ export class ventasService {
 
   
 
-  url = 'http://localhost/mantenimiento/src/app/php/ventas/';
-  url2 = 'http://localhost/mantenimiento/src/app/php/usuarios/';
-  url3 = 'http://localhost/mantenimiento/src/app/php/producto/';
-  url4 = 'http://localhost/mantenimiento/src/app/php/clientes/'
+  url = 'https://teamvisionw.000webhostapp.com/backend/ventas/';
+  url2 = 'https://teamvisionw.000webhostapp.com/backend/usuarios/';
+  url3 = 'https://teamvisionw.000webhostapp.com/backend/producto/';
+  url4 = 'https://teamvisionw.000webhostapp.com/backend/clientes/'
 
   constructor(private http: HttpClient) { }
 

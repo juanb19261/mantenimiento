@@ -6,10 +6,10 @@ import { Injectable } from '@angular/core';
 })
 export class comprasService {
 
-  url = 'http://localhost/mantenimiento/src/app/php/compras/';
-  url2 = 'http://localhost/mantenimiento/src/app/php/usuarios/';
-  url3 = 'http://localhost/mantenimiento/src/app/php/proveedor/';
-  url4 = 'http://localhost/mantenimiento/src/app/php/producto/'
+  url = 'https://teamvisionw.000webhostapp.com/backend/compras/';
+  url2 = 'https://teamvisionw.000webhostapp.com/backend/usuarios/';
+  url3 = 'https://teamvisionw.000webhostapp.com/backend/proveedor/';
+  url4 = 'https://teamvisionw.000webhostapp.com/backend/producto/'
 
 
   constructor(private http: HttpClient) { }
